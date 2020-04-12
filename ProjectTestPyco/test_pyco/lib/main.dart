@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:testpyco/di/injector.dart';
+import 'package:testpyco/navigation/navigation.dart';
+import 'package:testpyco/navigation/paths.dart';
+import 'package:testpyco/navigation/router.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  Injector.setup();
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -12,8 +15,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _HomePageState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: Navigation().navigatorKey,
+      initialRoute: PATH_SPLASH_PAGE,
+      onGenerateRoute: generateRoute,
+    );
   }
 }
