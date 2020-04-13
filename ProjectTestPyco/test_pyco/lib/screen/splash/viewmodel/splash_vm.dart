@@ -16,7 +16,7 @@ class SplashViewModel {
     online = await checkInternet();
     if (online) {
       DataTinder data = await tinderService.loadDataFromDB();
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 10; i++) {
         String fullName =
             '${data.results[0].name.title}.${data.results[0].name.first}-${data.results[0].name.last} $i';
         String email = data.results[0].email;
